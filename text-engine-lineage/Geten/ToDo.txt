@@ -1,0 +1,4 @@
+
+- CommandParsing
+[ ] Allow To Drop Items
+[ ] Show Inventory of the Player

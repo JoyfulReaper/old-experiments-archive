@@ -1,0 +1,162 @@
+include "weapons.script"
+include "characters.script"
+
+weapon "sword" with 
+    mindamage 10 and 
+    maxdamage 35
+end
+
+key "chest_in_castle" with 
+    maxusage 1
+end
+
+character "leo" as npc 
+    with 
+        health 100 
+        and money 150 
+        and dialog "welcome dude"
+    end
+end
+
+character \"sarah\" 
+    with 
+        health 100 
+        and money 150
+    end 
+    on \"move\"
+        tell \"blub\" 
+    end 
+end
+
+character "Sam" as npc
+    with
+        description "A friendly looking fellow" and
+        maxHealth 100 and
+        health 100 and
+        inventorySize 15
+    end
+end
+
+tell "hello world"
+
+memory "name" equals "Tombo"
+
+on "setup" 
+    ask for "Please Tell me your name: " to "name"
+end
+
+on "exit" 
+    tell "goodbye"
+end
+
+room "kitchen" with 
+    description "It looks modren" and
+    lookDescription "Uhh. It smells very tasty"
+
+    on "enter"
+        command "look chest"
+    end
+end
+
+exit "toDiningRoom" from "kitchen" 
+    with
+        isLocked false and
+        visible true and
+        toRoom 'diningRoom' and
+        side "north"
+    end
+end
+
+room "Modren Bathroom" 
+    with
+        name "Modren Bathroom" and
+        description "Everything looks shiny!" and
+        lookDescription "You look around, but you can't find anything that isn't sparkling clean!" and
+        startLocation true
+    end
+end
+
+
+item "box"
+    with
+        obtainable true and
+        visible true and
+        description "A small box." and
+        location "MailRoom" and
+        container true and
+        inventorySize 3 and
+        quantity 1
+    end
+end
+
+item "apple" 
+    with
+        color "green"
+    end
+
+    on "use"
+        increase health of "sarah" by 15
+    end
+end
+
+item "Chest" 
+    with
+        color "brown" and
+        isLocked true
+    end
+
+    on "use"
+       if isLocked
+            if inventory of "player" contains "open_chest_in_kitchen_key"
+                setProperty of "myname" isLocked false
+                tell "The Chest was empty"
+                remove item "open_chest_in_kitchen_key" from "player"
+            end
+       end
+    end
+end
+
+
+money "Gulden" and "Silver" and "Bronce""
+    100 "Silver" match "Gulden" and
+    10 "Bronce" match "Silver"
+
+
+
+dialog "welcome dude" based on "intro"
+      "hello @name. would you get a free weapon?"
+          on "yes" add "sword" to inventory
+          on "no" open dialog "first mission"
+
+verbs for direction
+          "w" or "west" is left
+           "e" or "east" is right
+
+on "start"
+     dialog "intro"
+     play "kitchensound" in loop
+     start print with
+        text "hello world"
+     end
+end
+
+make routine print with
+    text string
+    end
+    body
+        tell @text
+    end
+end
+
+loop until isLocked
+    start print "hello world"
+end
+
+recipebook "main"
+    recipe "great stuff" will craft 1 of "torch"
+        ingredients 
+           3 of "wood" and
+           1 of "stick"
+        end
+    end
+end
