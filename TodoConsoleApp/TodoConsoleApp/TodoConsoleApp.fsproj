@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="resources\todos.csv" />
+    <Compile Include="Result.fs" />
+    <Compile Include="Todo.SimpleTypes.fs" />
+    <Compile Include="Todo.Models.fs" />
+    <Compile Include="Validation.fs" />
+    <Compile Include="CommandLineParser.fs" />
+    <Compile Include="CvsTodoRepository.fs" />
+    <Compile Include="Todo.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup />
+
+</Project>
