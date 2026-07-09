@@ -1,0 +1,9 @@
+{
+  "name": "My CodeLibrary"
+, "files": [ { "git": 1 } ]
+, "build": {
+    "directory": "./Containers/DynamicArray"
+  , "build": "make all"
+  , "clean": "make clean"
+  }
+}

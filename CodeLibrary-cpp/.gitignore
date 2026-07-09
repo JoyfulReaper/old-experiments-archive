@@ -1,0 +1,22 @@
+#binaries
+ADTs/DynamicArray/test
+ADTs/Bag/test
+ADTs/LinkedList/test
+ADTs/Stack/test
+wordWrap/test
+docs/*
+*~
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
